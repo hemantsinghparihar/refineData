@@ -4,6 +4,8 @@ import { fetchCallsData } from '../features/refineSlice';
 
 const CallTable = () => {
   const dispatch = useDispatch();
+  const [selectedCallType,setSelectedCallType]=useState('')
+console.log('✌️selectedCallType --->', selectedCallType);
   const teritoryData = useSelector((state) => state.refine.teritoryData);
   const callsData = useSelector((state) => state.refine.callsData);
 
@@ -69,6 +71,23 @@ const CallTable = () => {
 
   return (
     <div className='w-full teritory-table'>
+
+        <div className="call-type">
+            <select name="" id=""
+            className='min-w-[200px] border'
+            value={selectedCallType}
+            onChange={(e) => setSelectedCallType(e.target.value)}
+            >
+                <option value="">-- Select call type --</option>
+                <option value="Face to Face"> Face to Face</option>
+                <option value="InPerson"> In Person</option>
+                <option value="Email"> Email</option>
+                <option value="Phone"> Phone</option>
+                <option value="Other"> other</option>
+            </select>
+        </div>
+        
+
       <div className='w-full'>
         <h5 className='text-blue-600 text-center'>
           Userx Territory Account
